@@ -10,6 +10,7 @@ var {
 
 var styles = require("./style");
 var api = require("../../Network/api.js");
+var UtilFuncs = require("../../Utils/functions.js");
 
 //View Elements
 var PostCell = require("./Elements/PostCell");
@@ -71,23 +72,10 @@ var ViewReactClass = React.createClass({
     this.props.navigator.push({
       title: "Top Story #"+post.count.substring(0, post.count.length - 1),
       component: PostView,
-      passProps: {},
+      passProps: {post_id: UtilFuncs.getId(post.comments.href),
+                  post_title: post.title.text},
     });
   },
 
 });
-
-var Mock_Data = {
-  "results": {
-    "collection1": [
-      {
-        "count": "1.",
-        "title": {
-          "text": "React Native is now open source",
-          "href": "https://github.com/facebook/react-native"
-        }
-      },
-    ]
-  }
-}
 module.exports = ViewReactClass;

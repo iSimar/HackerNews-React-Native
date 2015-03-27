@@ -1,0 +1,1 @@
+exports.getId = function (postUrl){ return (postUrl.split("="))[1] };
