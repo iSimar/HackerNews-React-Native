@@ -3,7 +3,6 @@
 var React = require('react-native');
 
 var {
-  AppRegistry,
   Text,
   View,
   ListView,
@@ -14,6 +13,9 @@ var api = require("../../Network/api.js");
 
 //View Elements
 var PostCell = require("./Elements/PostCell");
+
+//Views
+var PostView = require("../Post");
 
 var ViewReactClass = React.createClass({
   getInitialState: function() {
@@ -60,8 +62,17 @@ var ViewReactClass = React.createClass({
   },
   renderPostCell: function(post){
     return(
-      <PostCell post={post}/>
+      <PostCell
+        onSelect={() => this.selectPost(post)}
+        post={post}/>
     );
+  },
+  selectPost: function(post){
+    this.props.navigator.push({
+      title: "Top Story #"+post.count.substring(0, post.count.length - 1),
+      component: PostView,
+      passProps: {},
+    });
   },
 
 });

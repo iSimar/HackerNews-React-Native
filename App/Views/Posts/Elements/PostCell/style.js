@@ -28,6 +28,6 @@ module.exports = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     marginRight: 10,
-    color: '#000000'
+    color: '#FF6600'
   },
 });

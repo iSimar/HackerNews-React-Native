@@ -15,6 +15,7 @@ var HackerNews = React.createClass({
     return (
       <NavigatorIOS
         style={styles.container}
+        tintColor='#FF6600'
         initialRoute={{
           title: 'Hacker News - Top Stories',
           component: PostsView,
@@ -26,6 +27,7 @@ var HackerNews = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#F6F6EF',
   },
 });
 
