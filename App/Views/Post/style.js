@@ -8,12 +8,15 @@ var {
 
 module.exports = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
     backgroundColor: '#F6F6EF',
     flexDirection: 'column',
   },
   head: {
-    margin: 10,
+    margin:10,
+  },
+  foot: {
+    flex:2
   },
   title:{
     fontSize: 20,
@@ -35,4 +38,18 @@ module.exports = StyleSheet.create({
     height: 1,
     backgroundColor: '#CCCCCC',
   },
+  commentTitle: {
+    margin: 10,
+    color: 'gray',
+  },
+  commentsLoading: {
+    marginLeft: 10,
+    color: '#FF6600',
+  },
+  commentListView:{
+    color: '#000000',
+    margin: 0,
+    padding: 0,
+    backgroundColor: '#F6F6EF',
+  }
 });
