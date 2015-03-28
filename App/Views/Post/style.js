@@ -13,7 +13,9 @@ module.exports = StyleSheet.create({
     flexDirection: 'column',
   },
   head: {
-    margin:10,
+    marginLeft:10,
+    marginRight:10,
+    marginBottom:5,
   },
   foot: {
     flex:2
@@ -23,11 +25,11 @@ module.exports = StyleSheet.create({
     textAlign: 'left',
     marginTop: 10,
     marginBottom: 10,
-    color: '#FF6600'
+    color: '#FF6600',
   },
   text:{
     fontSize: 14,
-    marginBottom: 5,
+    marginBottom: 3,
 },
   source:{
     fontSize: 15,
@@ -35,11 +37,16 @@ module.exports = StyleSheet.create({
     color: '#0089FF',
   },
   separator: {
-    height: 1,
+    height: 0.5,
     backgroundColor: '#CCCCCC',
   },
+  loadingText:{
+    color: '#FF6600',
+    marginTop: 5,
+    fontSize: 15,
+  },
   commentTitle: {
-    margin: 10,
+    marginTop: 10,
     color: 'gray',
   },
   commentsLoading: {
@@ -51,5 +58,10 @@ module.exports = StyleSheet.create({
     margin: 0,
     padding: 0,
     backgroundColor: '#F6F6EF',
-  }
+  },
+  postDetailsLine: {
+    fontSize: 12,
+    marginBottom: 10,
+    color: 'gray',
+  },
 });

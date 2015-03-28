@@ -18,9 +18,15 @@ var PostCell = React.createClass({
         <Text style={styles.postCount}>
           {this.props.post.count}
         </Text>
+        <View style={styles.postDetailsContainer}>
           <Text style={styles.postTitle}>
             {this.props.post.title.text}
           </Text>
+          <Text style={styles.postDetailsLine}>
+            Posted by {this.props.post.username.text} | {(this.props.post.points).split(" ")[0]} Points | {(this.props.post.comments.text).split(" ")[0]} Comments
+          </Text>
+          <View style={styles.separator}/>
+        </View>
       </View>
       </TouchableHighlight>
     );

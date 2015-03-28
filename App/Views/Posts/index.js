@@ -58,7 +58,7 @@ var ViewReactClass = React.createClass({
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderPostCell}
-        style={styles.listView}/>
+        style={styles.postsListView}/>
     );
   },
   renderPostCell: function(post){
@@ -73,7 +73,10 @@ var ViewReactClass = React.createClass({
       title: "Top Story #"+post.count.substring(0, post.count.length - 1),
       component: PostView,
       passProps: {post_id: UtilFuncs.getId(post.comments.href),
-                  post_title: post.title.text},
+                  post_title: post.title.text,
+                  post_by: post.username.text.split(" ")[0],
+                  post_comments_count: post.comments.text.split(" ")[0],
+                  post_points_count: post.points.split(" ")[0],}
     });
   },
 

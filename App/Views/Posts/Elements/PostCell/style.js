@@ -21,13 +21,24 @@ module.exports = StyleSheet.create({
     color: 'gray',
     marginLeft: 15,
   },
-  postTitle: {
+  postDetailsContainer:{
     flex: 1,
+  },
+  postTitle: {
     fontSize: 15,
     textAlign: 'left',
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 4,
     marginRight: 10,
     color: '#FF6600'
+  },
+  postDetailsLine: {
+    fontSize: 12,
+    marginBottom: 10,
+    color: 'gray',
+  },
+  separator: {
+    height: 0.5,
+    backgroundColor: '#CCCCCC',
   },
 });

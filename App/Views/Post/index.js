@@ -42,18 +42,6 @@ var Post = React.createClass({
           loaded: true
         });
         this.fetchComments(responseData.kids, 0, responseData.kids.length, []);
-        // this.setState({
-        //         dataSource: this.state.dataSource.cloneWithRows(),
-        //         commentsLoaded: true,
-        //       });
-        // for (var i = 0; i <= responseData.kids.length; i++) {
-        //   if(i==responseData.kids.length){
-              
-        //   }
-        //   else{
-        //     this.fetchComment(responseData.kids[i]);
-        //   }
-        // }
       })
       .done();
   },
@@ -81,6 +69,33 @@ var Post = React.createClass({
     );
   },
   renderCommentsHeader: function(){
+    if(!this.state.loaded){
+      return(
+      <View style={styles.container}>
+          <View style={styles.head}>
+          <Text style={styles.title}>
+            {this.props.post_title}
+          </Text>
+          <TouchableHighlight 
+            onPress={() => this.openPage()}
+            underlayColor='#F6F6EF'>
+          <Text style={styles.source}>
+            (Source)
+          </Text>
+          </TouchableHighlight>
+          <Text style={styles.text}>
+            {this.state.post_text}
+          </Text>
+          <Text style={styles.postDetailsLine}>
+            Posted by Username | 18 Points
+          </Text>
+          <View style={styles.separator}/>
+          <Text style={styles.commentTitle}>{this.props.post_comments_count} Comments:</Text>
+          <Text style={styles.loadingText}>Fetching Comments...</Text>
+          </View>
+      </View>
+      );
+    }
     return(
       <View style={styles.container}>
           <View style={styles.head}>
@@ -97,8 +112,11 @@ var Post = React.createClass({
           <Text style={styles.text}>
             {this.state.post_text}
           </Text>
+          <Text style={styles.postDetailsLine}>
+            Posted by {this.props.post_by} | {this.props.post_points_count} Points
+          </Text>
           <View style={styles.separator}/>
-          <Text style={styles.commentTitle}>Comments:</Text>
+          <Text style={styles.commentTitle}>{this.props.post_comments_count} Comments:</Text>
           </View>
       </View>
     );
