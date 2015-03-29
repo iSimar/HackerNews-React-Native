@@ -12,13 +12,13 @@ module.exports = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: 'gray',
     borderRadius: 5,
-    marginLeft:10,
     marginRight:10,
     marginTop:5,
     padding:10,
   },
   commentBy: {
     fontSize: 13,
+    marginBottom: 3,
     textAlign: 'left',
     color: '#FF6600'
   },
@@ -26,5 +26,11 @@ module.exports = StyleSheet.create({
     fontSize: 13,
     textAlign: 'left',
     color: '#000000'
+  },
+  showRepliesLink:{
+    marginTop: 3,
+    fontSize: 13,
+    textAlign: 'right',
+    color: '#FF6600',
   },
 });

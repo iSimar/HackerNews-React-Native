@@ -41,7 +41,9 @@ var Post = React.createClass({
           post_url: responseData.url,
           loaded: true
         });
-        this.fetchComments(responseData.kids, 0, responseData.kids.length, []);
+        if(responseData.kids){
+          this.fetchComments(responseData.kids, 0, responseData.kids.length, []);
+        }
       })
       .done();
   },
@@ -50,17 +52,30 @@ var Post = React.createClass({
     fetch(api.HN_ITEM_ENDPOINT+kids[current]+'.json')
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(a),
-          commentsLoaded: true,
-        });
+        responseData.leftMargin = 10;
+        if(responseData.kids){
+          responseData.replies_count = responseData.kids.length;
+        }
+        this.updateDataSource(a);
         this.fetchComments(kids, current+1, end, a.concat([responseData]));
       })
       .done();
     }
   },
+  insertInComments: function(new_parent_comment, comments_to_added, location){
+    var head_array = this.state.comments.slice(0, location-1);
+    var tail_array = this.state.comments.slice(location, this.state.comments.length);
+    return ((head_array.concat([new_parent_comment])).concat(comments_to_added)).concat(tail_array);
+  },
+  updateDataSource: function(comments){
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(comments),
+      comments: comments,
+      commentsLoaded: true,
+    });
+  },
   render: function() {
-  	return (
+    return (
      <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderCommentCell}
@@ -123,11 +138,47 @@ var Post = React.createClass({
   },
   renderCommentCell: function(comment){
     return(
-        <CommentCell comment={comment} />
+        <CommentCell 
+          comment={comment}
+          onSelectShowReplies={() => this.getAndRenderCommentReplies(comment)} />
     );
   },
+  getAndRenderCommentReplies: function(comment){
+    this.fetchSubComments(comment.kids, 0, [], comment, this.state.comments.indexOf(comment), comment.leftMargin+10);
+    // var locationOfComment = ;
+    // var locationBelowParentComment = locationOfComment+1;
+    
+  },
+  fetchSubComments: function(kids, current, a, comment, parentCommentLocation, newleftMargin){
+    if(current == 0){
+      this.updateDataSource(
+                          this.insertInComments({"by":comment.by, "text":comment.text, "leftMargin":comment.leftMargin, loadingSubComments: true}, 
+                                                [], 
+                                                parentCommentLocation+1)
+                          );
+    }
+    if(current < kids.length){
+    fetch(api.HN_ITEM_ENDPOINT+kids[current]+'.json')
+      .then((response) => response.json())
+      .then((responseData) => {
+        responseData.leftMargin = newleftMargin;
+        if(responseData.kids){
+          responseData.replies_count = responseData.kids.length;
+        }
+        this.fetchSubComments(kids, current+1, a.concat([responseData]), comment, parentCommentLocation, newleftMargin);
+      })
+      .done();
+    }
+    else{
+      this.updateDataSource(
+                          this.insertInComments({"by":comment.by, "text":comment.text, "leftMargin":comment.leftMargin, loadingSubComments: false}, 
+                                                a, 
+                                                parentCommentLocation+1)
+                          );
+    }
+  },
   openPage: function(){
-  	this.props.navigator.push({
+    this.props.navigator.push({
       title: this.props.post_title,
       component: Web_View,
       passProps: {url: this.state.post_url},
