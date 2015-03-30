@@ -57,7 +57,12 @@ var Post = React.createClass({
           responseData.replies_count = responseData.kids.length;
         }
         this.updateDataSource(a);
-        this.fetchComments(kids, current+1, end, a.concat([responseData]));
+        if(responseData.deleted){
+          this.fetchComments(kids, current+1, end, a.concat([{"by": "<Username>", "text": "<Comment Deleted>", "leftMargin": 10}]));
+        }
+        else{
+          this.fetchComments(kids, current+1, end, a.concat([responseData]));
+        }
       })
       .done();
     }

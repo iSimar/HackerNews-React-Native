@@ -33,4 +33,8 @@ module.exports = StyleSheet.create({
     textAlign: 'right',
     color: '#FF6600',
   },
+  commentCode:{
+    fontFamily: 'Courier New',
+    fontSize: 12,
+  },
 });
