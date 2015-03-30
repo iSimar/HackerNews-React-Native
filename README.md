@@ -1,6 +1,6 @@
 # HackerNews-React-Native  
 
-Made with [React-Native](https://github.com/facebook/react-native).
+[Hacker News](https://news.ycombinator.com/) reader for iOS, made with [React-Native](https://github.com/facebook/react-native).
 
 ## Screenshots:  
 <center>
