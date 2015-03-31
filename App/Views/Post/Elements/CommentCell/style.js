@@ -37,4 +37,8 @@ module.exports = StyleSheet.create({
     fontFamily: 'Courier New',
     fontSize: 12,
   },
+  parseHTMLStyle:{
+    backgroundColor: '#F6F6EF',
+    textAlign: 'left',
+  },
 });
