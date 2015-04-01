@@ -2,6 +2,8 @@
 
 [Hacker News](https://news.ycombinator.com/) reader for iOS, made with [React-Native](https://github.com/facebook/react-native).
 
+This project uses [ParseHTML](https://github.com/iSimar/ParseHTML-React-Native) to render HTML code in the iOS Application.
+
 ## Screenshots:  
 <center>
 <img src="http://i.imgur.com/evZsZub.png" height="500"  width="200"/>
