@@ -87,7 +87,7 @@ var ParseHTML = React.createClass({
     });
   },
   _decodeHTMLEntities: function(str){
-    return String(str).replace(/<p>/g, '\n\n<p>').replace(/&#x2F;/g, '/').replace('<i>', '').replace('</i>', '').replace(/&#x27;/g, '\'').replace(/&quot;/g, '\"').replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)" rel="nofollow">(.*)?<\/a>/g, "$1").replace(/&gt;/g, '>');
+    return String(str).replace(/<p>/g, '\n\n').replace(/&#x2F;/g, '/').replace('<i>', '').replace('</i>', '').replace(/&#x27;/g, '\'').replace(/&quot;/g, '\"').replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)" rel="nofollow">(.*)?<\/a>/g, "$1").replace(/&gt;/g, '>');
   },
   render: function() {
     return (
