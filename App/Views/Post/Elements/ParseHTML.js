@@ -65,7 +65,6 @@ var ParseHTML = React.createClass({
                         "style": style,
                       });
       }
-      console.log(nextTag.indexStart);
       var endTag = "</"+(nextTag.tag).slice(1);
       var indexEnd = html_code.indexOf(endTag);
       var new_text = html_code.slice(nextTag.indexStart+nextTag.tag.length, indexEnd);
@@ -88,7 +87,7 @@ var ParseHTML = React.createClass({
     });
   },
   _decodeHTMLEntities: function(str){
-    return String(str).replace(/<p>/g, '\n\n').replace(/&#x2F;/g, '/').replace('<i>', '').replace('</i>', '').replace(/&#x27;/g, '\'').replace(/&quot;/g, '\"').replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)" rel="nofollow">(.*)?<\/a>/g, "$1").replace(/&gt;/g, '>');
+    return String(str).replace(/<p>/g, '\n\n<p>').replace(/&#x2F;/g, '/').replace('<i>', '').replace('</i>', '').replace(/&#x27;/g, '\'').replace(/&quot;/g, '\"').replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)" rel="nofollow">(.*)?<\/a>/g, "$1").replace(/&gt;/g, '>');
   },
   render: function() {
     return (
