@@ -1,3 +1,8 @@
+/*
+Coded by: Simar (github.com/iSimar)
+GitHub Project: https://github.com/iSimar/HackerNews-React-Native
+*/
+
 'use strict';
 
 var React = require('react-native');
