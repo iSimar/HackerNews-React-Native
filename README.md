@@ -14,8 +14,9 @@ This project uses [ParseHTML](https://github.com/iSimar/ParseHTML-React-Native) 
 </center>
 
 ## Android Screenshots
-![image](http://i.imgur.com/mavRFK7.png)
-![image](http://i.imgur.com/ARWNQHe.png)
-![image](http://i.imgur.com/fBf2nti.png)
-## Known Android issues
-   * WebView is not yet supported
+<center>
+<img src="http://i.imgur.com/rk8unz5.png" height="500"  width="250"/>
+<img src="http://i.imgur.com/MLKWBCH.png" height="500"  width="300"/>
+</center>
+## Known Issues
+   * WebView is not working for Android App
