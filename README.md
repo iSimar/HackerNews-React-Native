@@ -20,3 +20,12 @@ This project uses [ParseHTML](https://github.com/iSimar/ParseHTML-React-Native) 
 </center>
 ## Known Issues
    * WebView is not working for Android App
+
+##Running
+Run `npm install` inside the folder, this will install react-native and other dependencies and will take some time.
+
+#### iOS 
+Open the project file at `ios/HackerNews.xcodeproj`
+
+#### Android
+Make sure that your device is detected with `adb devices`. Then run `react-native run-android`.
