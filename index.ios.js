@@ -8,7 +8,7 @@ var {
   NavigatorIOS,
 } = React;
 
-var PostsView = require('./App/Views/Posts');
+var PostsView = require('./App/Views/Posts/index.ios.js');
 
 var HackerNews = React.createClass({
   render: function() {

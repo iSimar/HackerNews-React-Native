@@ -21,7 +21,7 @@ var UtilFuncs = require("../../Utils/functions.js");
 var PostCell = require("./Elements/PostCell");
 
 //Views
-var PostView = require("../Post");
+var PostView = require("../Post/index.ios.js");
 
 var ViewReactClass = React.createClass({
   getInitialState: function() {

@@ -59,7 +59,6 @@ module.exports = StyleSheet.create({
     color: '#FF6600',
   },
   commentListView:{
-    color: '#000000',
     margin: 0,
     padding: 0,
     backgroundColor: '#F6F6EF',

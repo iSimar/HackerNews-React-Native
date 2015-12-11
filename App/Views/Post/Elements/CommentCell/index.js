@@ -25,9 +25,10 @@ var CommentCell = React.createClass({
             <Text style={styles.commentBy}>
               {this.props.comment.by}:
             </Text>
-            <ParseHTML code = {this.props.comment.text} 
-                     style = {styles.parseHTMLStyle}
-                     customTagToStyle = {{
+            <ParseHTML key={''}
+                       code = {this.props.comment.text} 
+                       style = {styles.parseHTMLStyle}
+                       customTagToStyle = {{
                                           '<pre>':{},
                                           '<code>': styles.commentCode
                                         }} />
