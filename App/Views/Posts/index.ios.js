@@ -10,68 +10,37 @@ var React = require('react-native');
 var {
   Text,
   View,
-  ListView,
 } = React;
 
 var styles = require("./style");
 var api = require("../../Network/api.js");
 var UtilFuncs = require("../../Utils/functions.js");
 
-//View Elements
-var PostCell = require("./Elements/PostCell");
-
 //Views
 var PostView = require("../Post/index.ios.js");
 
+var RefreshableListView = require("./Components/RefreshableListView");
+
 var ViewReactClass = React.createClass({
-  getInitialState: function() {
-    return {
-      dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2}),
-      loaded: false,
-    };
+  render: function(){
+    return(
+        <RefreshableListView renderRow={(row)=>this.renderListViewRow(row)}
+                             onRefresh={(callback)=>this.listViewOnRefresh(callback)}
+                             backgroundColor={'#F6F6EF'}/>
+    );
   },
-  componentDidMount: function() {
-    this.fetchData();
+  renderListViewRow: function(row){
+      return(
+          <Text>{row.title.text}</Text>
+      );
   },
-  fetchData: function() {
-    fetch(api.REQUEST_URL)
+  listViewOnRefresh: function(callback){
+      fetch(api.REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData.results.collection1),
-          loaded: true
-        });
+          callback(responseData.results.collection1, {allLoaded: true});
       })
       .done();
-  },
-  render: function() {
-    if(!this.state.loaded){
-      return(
-        <View style={styles.container}>
-        <Text style={styles.loadingText}>
-          Fetching Posts...
-        </Text>
-      </View>
-      );
-    }
-    return (
-      this.renderListView()
-    );
-  },
-  renderListView: function(){
-    return(
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderPostCell}
-        style={styles.postsListView}/>
-    );
-  },
-  renderPostCell: function(post){
-    return(
-      <PostCell
-        onSelect={() => this.selectPost(post)}
-        post={post}/>
-    );
   },
   selectPost: function(post){
     this.props.navigator.push({

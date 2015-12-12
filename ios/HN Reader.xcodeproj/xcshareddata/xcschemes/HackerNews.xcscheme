@@ -17,7 +17,7 @@
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "HackerNews.app"
                BlueprintName = "HackerNews"
-               ReferencedContainer = "container:HackerNews.xcodeproj">
+               ReferencedContainer = "container:HN Reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,16 +31,16 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "HackerNewsTests.xctest"
                BlueprintName = "HackerNewsTests"
-               ReferencedContainer = "container:HackerNews.xcodeproj">
+               ReferencedContainer = "container:HN Reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "HackerNewsTests.xctest"
                BlueprintName = "HackerNewsTests"
-               ReferencedContainer = "container:HackerNews.xcodeproj">
+               ReferencedContainer = "container:HN Reader.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,18 +59,21 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "HackerNews.app"
             BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HackerNews.xcodeproj">
+            ReferencedContainer = "container:HN Reader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
@@ -79,17 +82,17 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "HackerNews.app"
             BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HackerNews.xcodeproj">
+            ReferencedContainer = "container:HN Reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
@@ -98,7 +101,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "HackerNews.app"
             BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HackerNews.xcodeproj">
+            ReferencedContainer = "container:HN Reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
