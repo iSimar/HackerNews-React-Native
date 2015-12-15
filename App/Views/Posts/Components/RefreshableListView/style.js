@@ -16,4 +16,14 @@ module.exports = StyleSheet.create({
         paddingLeft: 10,
         flexDirection: 'row'
     },
+    paginationView: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 20,
+        paddingBottom: 20
+    },
+    loadMoreText: {
+        fontSize: 15,
+        color: 'gray',
+    }
 });

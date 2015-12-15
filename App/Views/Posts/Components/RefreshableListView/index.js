@@ -36,6 +36,7 @@ var React = require('react-native');
 var {
     Text,
     View,
+    TouchableOpacity
 } = React;
 
 var styles = require('./style');
@@ -47,10 +48,11 @@ module.exports = React.createClass({
         return {
             renderRow: this.props.renderRow,
             backgroundColor: this.props.backgroundColor ? this.props.backgroundColor : '#FFFFFF',
+            loadMoreText: this.props.loadMoreText ? this.props.loadMoreText : '+',
         };
     },
-    onRefresh: function(page = 1, callback, options){
-        this.props.onRefresh(callback);
+    onRefresh: function(page=1, callback, options){
+        this.props.onRefresh(page, callback);
     },
     renderRow: function(row){
         return this.state.renderRow(row);
@@ -62,7 +64,15 @@ module.exports = React.createClass({
                 <GiftedListView rowView={this.renderRow}
                                 onFetch={this.onRefresh}
                                 paginationAllLoadedView={this.renderPaginationAllLoadedView}
-                                customStyles={{refreshableView:{backgroundColor: this.state.backgroundColor}}}
+                                paginationWaitingView={this.renderPaginationWaitingView}
+                                customStyles={{
+                                                refreshableView: {
+                                                    backgroundColor: this.state.backgroundColor
+                                                },
+                                                paginationView: {
+                                                    backgroundColor: this.state.backgroundColor
+                                                }
+                                }}
                                 />
             </View>
         );
@@ -71,5 +81,15 @@ module.exports = React.createClass({
         return(
             <View />
         );
-    }
+    },
+    renderPaginationWaitingView: function(paginateCallback) {
+        return (
+            <TouchableOpacity style={styles.paginationView}
+                              onPress={paginateCallback}>
+                <Text style={styles.loadMoreText}>
+                    {this.state.loadMoreText}
+                </Text>
+           </TouchableOpacity>
+        );
+    },
 });
