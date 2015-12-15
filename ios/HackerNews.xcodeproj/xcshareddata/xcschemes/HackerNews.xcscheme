@@ -17,7 +17,7 @@
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "HackerNews.app"
                BlueprintName = "HackerNews"
-               ReferencedContainer = "container:HN Reader.xcodeproj">
+               ReferencedContainer = "container:HackerNews.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "HackerNewsTests.xctest"
                BlueprintName = "HackerNewsTests"
-               ReferencedContainer = "container:HN Reader.xcodeproj">
+               ReferencedContainer = "container:HackerNews.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "HackerNewsTests.xctest"
                BlueprintName = "HackerNewsTests"
-               ReferencedContainer = "container:HN Reader.xcodeproj">
+               ReferencedContainer = "container:HackerNews.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "HackerNews.app"
             BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HN Reader.xcodeproj">
+            ReferencedContainer = "container:HackerNews.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "HackerNews.app"
             BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HN Reader.xcodeproj">
+            ReferencedContainer = "container:HackerNews.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -101,7 +101,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "HackerNews.app"
             BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HN Reader.xcodeproj">
+            ReferencedContainer = "container:HackerNews.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
