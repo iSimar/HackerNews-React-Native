@@ -1,5 +1,5 @@
 /*
-Coded by: Simar (github.com/iSimar)
+Author: Simar (github.com/iSimar)
 GitHub Project: https://github.com/iSimar/HackerNews-React-Native
 */
 

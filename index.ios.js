@@ -8,7 +8,7 @@ var {
   NavigatorIOS,
 } = React;
 
-var PostsView = require('./App/Views/Posts/index.ios.js');
+var Dashboard = require('./App/Views/Dashboard/index.ios.js');
 
 var HackerNews = React.createClass({
   render: function() {
@@ -18,7 +18,7 @@ var HackerNews = React.createClass({
         tintColor='#FF6600'
         initialRoute={{
           title: 'Hacker News',
-          component: PostsView,
+          component: Dashboard,
         }}/>
     );
   }

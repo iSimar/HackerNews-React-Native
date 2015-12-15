@@ -17,10 +17,8 @@ var styles = require("./style");
 var api = require("../../Network/api.js");
 var UtilFuncs = require("../../Utils/functions.js");
 
-//Views
-var PostView = require("../Post/index.ios.js");
-
-var RefreshableListView = require("./Components/RefreshableListView");
+var Post = require("../Post/index.ios.js");
+var RefreshableListView = require("../../Components/RefreshableListView");
 
 module.exports = React.createClass({
   getInitialState: function(){
@@ -62,13 +60,13 @@ module.exports = React.createClass({
           this.fetchStoriesUsingTopStoryIDs(this.state.topStoryIDs, this.state.lastIndex, 5, callback);
       }
       else {
-      fetch(api.HN_TOP_STORIES_ENDPOINT)
-      .then((response) => response.json())
-      .then((topStoryIDs) => {
-          this.fetchStoriesUsingTopStoryIDs(topStoryIDs, 0, 12, callback);
-          this.setState({topStoryIDs: topStoryIDs});
-      })
-      .done();
+        fetch(api.HN_TOP_STORIES_ENDPOINT)
+        .then((response) => response.json())
+        .then((topStoryIDs) => {
+            this.fetchStoriesUsingTopStoryIDs(topStoryIDs, 0, 12, callback);
+            this.setState({topStoryIDs: topStoryIDs});
+        })
+        .done();
       }
   },
   fetchStoriesUsingTopStoryIDs: function(topStoryIDs, startIndex, amountToAdd, callback){
@@ -94,11 +92,11 @@ module.exports = React.createClass({
       iterateAndFetch();
       this.setState({lastIndex: endIndex});
   },
-  selectPost: function(post){
+  selectPost: function(row){
     this.props.navigator.push({
-      title: "Top Story #"+post.count,
-      component: PostView,
-      passProps: {post: post}
+      title: "Top Story #"+row.count,
+      component: Post,
+      passProps: {post: row}
     });
   }
 });
