@@ -14,6 +14,8 @@ var {
   View,
   ListView,
   TouchableHighlight,
+  IntentAndroid,
+  ToastAndroid,
 } = React;
 
 var styles = require('./style');
@@ -190,8 +192,13 @@ var Post = React.createClass({
     //WebView is not yet supported on android
     //Open post link in browser, change this
     //when WebView drops for android
-    WebIntent.open(this.state.post_url);
-    return;
+    IntentAndroid.canOpenURL(this.state.post_url, (supported) => {
+      if (supported) {
+        IntentAndroid.openURL(this.state.post_url);
+      } else {
+        ToastAndroid.show('Could not open Url', ToastAndroid.SHORT);
+      }
+    });
     // this.props.nav.push({
     //   id: 'WebView',
     //   title: this.props.post.post_title,

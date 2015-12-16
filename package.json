@@ -6,7 +6,6 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "react-native": "^0.11.0",
-    "react-native-webintent": "^1.0.1"
+    "react-native": "^0.16.0"
   }
 }

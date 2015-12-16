@@ -10,7 +10,6 @@ import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.ivanph.webintent.RNWebIntentPackage;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
@@ -27,7 +26,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .addPackage(new RNWebIntentPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -55,7 +53,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
       }
     }
 
-
     @Override
     public void invokeDefaultOnBackPressed() {
       super.onBackPressed();
@@ -75,7 +72,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         super.onResume();
 
         if (mReactInstanceManager != null) {
-            mReactInstanceManager.onResume(this);
+            mReactInstanceManager.onResume(this, this);
         }
     }
 }
