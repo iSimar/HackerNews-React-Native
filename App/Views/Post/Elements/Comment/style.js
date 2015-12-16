@@ -1,8 +1,3 @@
-/*
-Coded by: Simar (github.com/iSimar)
-GitHub Project: https://github.com/iSimar/HackerNews-React-Native
-*/
-
 'use strict';
 
 var React = require('react-native');
@@ -12,14 +7,18 @@ var {
 } = React;
 
 module.exports = StyleSheet.create({
-  container: {
+  commentInnerContainer: {
     flexDirection: 'column',
-    borderWidth: 0.5,
-    borderColor: 'gray',
+    borderWidth: 1,
+    borderColor: '#CCCCCC',
     borderRadius: 5,
     marginRight:10,
-    marginTop:5,
+    marginLeft:10,
+    marginTop:10,
     padding:10,
+  },
+  commentOuterContainer: {
+
   },
   commentBy: {
     fontSize: 13,
@@ -32,18 +31,11 @@ module.exports = StyleSheet.create({
     textAlign: 'left',
     color: '#000000'
   },
-  showRepliesLink:{
-    marginTop: 3,
+  showRepliesButtonText:{
+    marginTop: 10,
     fontSize: 13,
     textAlign: 'right',
     color: '#FF6600',
-  },
-  commentCode:{
-    fontFamily: 'Courier New',
-    fontSize: 12,
-  },
-  parseHTMLStyle:{
-    backgroundColor: '#F6F6EF',
-    textAlign: 'left',
-  },
+    textAlign: 'right',
+  }
 });

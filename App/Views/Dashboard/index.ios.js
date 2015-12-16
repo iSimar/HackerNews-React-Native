@@ -1,8 +1,3 @@
-/*
- * Author: Simar (github.com/iSimar)
- * GitHub Project: https://github.com/iSimar/HackerNews-React-Native
-*/
-
 'use strict';
 
 var React = require('react-native');
@@ -37,7 +32,7 @@ module.exports = React.createClass({
   },
   renderListViewRow: function(row){
       return(
-          <TouchableHighlight onPress={(row)=>this.selectPost(row)}>
+          <TouchableHighlight onPress={()=>this.selectRow(row)}>
             <View style={styles.rowContainer}>
                 <Text style={styles.rowCount}>
                     {row.count}
@@ -71,9 +66,9 @@ module.exports = React.createClass({
   },
   fetchStoriesUsingTopStoryIDs: function(topStoryIDs, startIndex, amountToAdd, callback){
       var rowsData = [];
-      var endIndex = startIndex + amountToAdd;
+      var endIndex = (startIndex + amountToAdd) < topStoryIDs.length ? (startIndex + amountToAdd) : topStoryIDs.length;
       function iterateAndFetch(){
-          if (startIndex < ((endIndex <= topStoryIDs.length) ? endIndex : topStoryIDs.length)){
+          if (startIndex < endIndex){
               fetch(api.HN_ITEM_ENDPOINT+topStoryIDs[startIndex]+".json")
               .then((response) => response.json())
               .then((topStory) => {
@@ -92,7 +87,7 @@ module.exports = React.createClass({
       iterateAndFetch();
       this.setState({lastIndex: endIndex});
   },
-  selectPost: function(row){
+  selectRow: function(row){
     this.props.navigator.push({
       title: "Top Story #"+row.count,
       component: Post,

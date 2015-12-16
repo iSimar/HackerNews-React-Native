@@ -49,6 +49,7 @@ module.exports = React.createClass({
             renderRow: this.props.renderRow,
             backgroundColor: this.props.backgroundColor ? this.props.backgroundColor : '#FFFFFF',
             loadMoreText: this.props.loadMoreText ? this.props.loadMoreText : '+',
+            header: this.props.header ? this.props.header : null,
         };
     },
     onRefresh: function(page=1, callback, options){
@@ -65,6 +66,7 @@ module.exports = React.createClass({
                                 onFetch={this.onRefresh}
                                 paginationAllLoadedView={this.renderPaginationAllLoadedView}
                                 paginationWaitingView={this.renderPaginationWaitingView}
+                                headerView={this.renderHeaderView}
                                 customStyles={{
                                                 refreshableView: {
                                                     backgroundColor: this.state.backgroundColor
@@ -72,8 +74,7 @@ module.exports = React.createClass({
                                                 paginationView: {
                                                     backgroundColor: this.state.backgroundColor
                                                 }
-                                }}
-                                />
+                                }}/>
             </View>
         );
     },
@@ -92,4 +93,10 @@ module.exports = React.createClass({
            </TouchableOpacity>
         );
     },
+    renderHeaderView: function(){
+        if(this.state.header){
+            return this.props.header();
+        }
+        return (<View />);
+    }
 });

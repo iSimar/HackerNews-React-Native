@@ -17,7 +17,7 @@ var HackerNews = React.createClass({
         style={styles.container}
         tintColor='#FF6600'
         initialRoute={{
-          title: 'Hacker News',
+          title: 'Top Stories',
           component: Dashboard,
         }}/>
     );
