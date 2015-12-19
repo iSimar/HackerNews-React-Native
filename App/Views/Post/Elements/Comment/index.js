@@ -1,14 +1,13 @@
 var React = require('react-native');
 
 var {
+	StyleSheet,
     Text,
     View,
     TouchableHighlight
 } = React;
 
 var api = require("../../../../Network/api.js");
-
-var styles = require('./style');
 
 var Comment = React.createClass({
 	displayName: 'Comment',
@@ -28,7 +27,7 @@ var Comment = React.createClass({
 						{this.props.data.by}:
 					</Text>
 					<Text style={styles.commentText}>
-						{this.props.data.text}
+						{this.fixCommentText(this.props.data.text)}
 					</Text>
 					{this.renderRepliesControlButton()}
 				</View>
@@ -125,7 +124,50 @@ var Comment = React.createClass({
 		    }
 		    iterateAndFetch();
 		}
+    },
+    fixCommentText: function(str){
+    	return String(str).replace(/<p>/g, '\n\n')
+    			   		  .replace(/&#x2F;/g, '/')
+    			   		  .replace('<i>', '')
+    			   		  .replace('</i>', '')
+    			   		  .replace(/&#x27;/g, '\'')
+    			   		  .replace(/&quot;/g, '\"')
+    			   		  .replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)" rel="nofollow">(.*)?<\/a>/g, "$1");
     }
 });
 
 module.exports = Comment;
+
+var styles = StyleSheet.create({
+  commentInnerContainer: {
+    flexDirection: 'column',
+    borderWidth: 1,
+    borderColor: '#CCCCCC',
+    borderRadius: 5,
+    marginRight:10,
+    marginLeft:10,
+    marginTop:10,
+    padding:10,
+  },
+  commentOuterContainer: {
+
+  },
+  commentBy: {
+    fontSize: 13,
+    marginBottom: 3,
+    textAlign: 'left',
+    color: '#FF6600'
+  },
+  commentText: {
+    fontSize: 13,
+    textAlign: 'left',
+    color: '#000000'
+  },
+  showRepliesButtonText:{
+    marginTop: 10,
+    fontSize: 13,
+    textAlign: 'right',
+    color: '#FF6600',
+    textAlign: 'right',
+  }
+});

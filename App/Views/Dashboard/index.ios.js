@@ -3,14 +3,13 @@
 var React = require('react-native');
 
 var {
+  StyleSheet,
   Text,
   View,
   TouchableHighlight
 } = React;
 
-var styles = require("./style");
 var api = require("../../Network/api.js");
-var UtilFuncs = require("../../Utils/functions.js");
 
 var Post = require("../Post/index.ios.js");
 var RefreshableListView = require("../../Components/RefreshableListView");
@@ -32,7 +31,8 @@ module.exports = React.createClass({
   },
   renderListViewRow: function(row){
       return(
-          <TouchableHighlight onPress={()=>this.selectRow(row)}>
+          <TouchableHighlight underlayColor={'#f3f3f2'}
+                              onPress={()=>this.selectRow(row)}>
             <View style={styles.rowContainer}>
                 <Text style={styles.rowCount}>
                     {row.count}
@@ -94,4 +94,39 @@ module.exports = React.createClass({
       passProps: {post: row}
     });
   }
+});
+
+var styles = StyleSheet.create({
+    rowContainer:{
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    rowCount: {
+        fontSize: 20,
+        textAlign: 'right',
+        color: 'gray',
+        margin: 10,
+        marginLeft: 15,
+    },
+    rowDetailsContainer: {
+        flex: 1,
+    },
+    rowTitle: {
+        fontSize: 15,
+        textAlign: 'left',
+        marginTop: 10,
+        marginBottom: 4,
+        marginRight: 10,
+        color: '#FF6600'
+    },
+    rowDetailsLine: {
+        fontSize: 12,
+        marginBottom: 10,
+        color: 'gray',
+    },
+    separator: {
+        height: 1,
+        backgroundColor: '#CCCCCC'
+    } 
 });

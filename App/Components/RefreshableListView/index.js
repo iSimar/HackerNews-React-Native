@@ -34,12 +34,11 @@
 var React = require('react-native');
 
 var {
+    StyleSheet,
     Text,
     View,
     TouchableOpacity
 } = React;
-
-var styles = require('./style');
 
 var GiftedListView = require('react-native-gifted-listview');
 
@@ -98,5 +97,29 @@ module.exports = React.createClass({
             return this.props.header();
         }
         return (<View />);
+    }
+});
+
+var styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    navBarSpace: {
+        height: 64,
+    },
+    rowContainer: {
+        paddingRight: 15,
+        paddingLeft: 10,
+        flexDirection: 'row'
+    },
+    paginationView: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 20,
+        paddingBottom: 20
+    },
+    loadMoreText: {
+        fontSize: 15,
+        color: 'gray',
     }
 });
