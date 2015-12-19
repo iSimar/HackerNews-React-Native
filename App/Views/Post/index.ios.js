@@ -74,7 +74,7 @@ module.exports = React.createClass({
   },
   listViewOnRefresh: function(page, callback){
     if(!this.props.post.kids){
-      callback([], {allLoaded: tryue})
+      callback([], {allLoaded: true})
     }
     else if(page!=1){
       this.fetchCommentsUsingKids(this.props.post.kids, this.state.lastIndex, 3, callback);
