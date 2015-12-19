@@ -34,7 +34,8 @@ var {
     StyleSheet,
     Text,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform
 } = React;
 
 var GiftedListView = require('react-native-gifted-listview');
@@ -63,6 +64,7 @@ module.exports = React.createClass({
                                 paginationAllLoadedView={this.renderPaginationAllLoadedView}
                                 paginationWaitingView={this.renderPaginationWaitingView}
                                 headerView={this.renderHeaderView}
+                                refreshable={Platform.OS !== 'android'}
                                 customStyles={{
                                                 refreshableView: {
                                                     backgroundColor: this.state.backgroundColor,
@@ -105,7 +107,7 @@ var styles = StyleSheet.create({
         flex: 1
     },
     navBarSpace: {
-        height: 64,
+        height: (Platform.OS !== 'android') ? 64 : 0,
     },
     rowContainer: {
         paddingRight: 15,
