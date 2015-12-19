@@ -92,7 +92,9 @@ module.exports = React.createClass({
             .then((response) => response.json())
             .then((item) => {
                 item.count = startIndex+1;
-                rowsData.push(item);
+                if(!item.deleted){
+                  rowsData.push(item);
+                }
                 startIndex++;
                 iterateAndFetch();
             })

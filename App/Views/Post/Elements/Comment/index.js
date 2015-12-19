@@ -107,7 +107,9 @@ var Comment = React.createClass({
 		            .then((response) => response.json())
 		            .then((item) => {
 		                item.count = index+1;
-		                subCommentsData.push(item);
+                        if(!item.deleted){
+		                  subCommentsData.push(item);
+                        }
 		                index++;
 		                iterateAndFetch();
 		            })
