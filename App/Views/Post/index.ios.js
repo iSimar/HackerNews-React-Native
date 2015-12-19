@@ -29,7 +29,7 @@ module.exports = React.createClass({
   render: function(){
     return(
         <RefreshableListView renderRow={(row)=>this.renderListViewRow(row)}
-        					           header={this.renderListViewHeader}
+        					           renderHeader={this.renderListViewHeader}
                              onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback)}
                              backgroundColor={'#F6F6EF'}
                              loadMoreText={'Load More...'}/>

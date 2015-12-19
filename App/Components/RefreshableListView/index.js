@@ -5,30 +5,27 @@
  *              pulled down to refresh
  * 
  * Dependencies:
- *  -> react-native-gifted-listview (https://github.com/FaridSafi/react-native-gifted-listview)
+ *  -> react-native-gifted-listview 0.0.6 (https://github.com/FaridSafi/react-native-gifted-listview)
  *
  * Properties:
- *  -> rows
- *      an array that contains objects for each row.
- *
- *  -> rowPaddingTopBottom (optional, default=20)
- *     a value for padding (top & bottom only) for a row in the list view.
- *     
- *  -> backgroundColor (optional, default=#FFFFFF)
- *      the background color of the list view
- *
- *  -> cellUnderlayColor (optional, default=#F1F1F1)
- *      underlay color of the cell when tapped
- *
+ *  -> renderRow
+ *      render function for rows or cells in the listview
+ *  -> onRefresh
+ *      used for filling the listview on ethier pull to refresh or pagination (load more),
+ *      it is called with 2 arugments page number and callback. see react-native-gifted-listview docs.
+ *  -> backgroundColor (optional)
+ *      default = '#FFFFFF', background color of the listview
+ *  -> loadMoreText (optional)
+ *      default = '+', text used at the end of the listview - pagination
+ *  -> renderHeader (optional)
+ *      rendering not sticky header of the listview
+ *  
  * Example:
- *  -> <RefreshableListView rows={[{
- *                                      title: 'my title',
- *                                      subtitle: 'my subtitle',
- *                                      renderLeftIcon: () => {return(<Icon name='rocket' size={30}/>);}
- *                                  }]}
- *                          rowPaddingTopBottom={10}
- *                          backgroundColor={'#f8f8f8'}
- *                          cellUnderlayColor={'#000000'}/>
+ *  <RefreshableListView renderRow={(row)=>this.renderListViewRow(row)}
+ *                       renderHeader={this.renderListViewHeader}
+ *                       onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback)}
+ *                       backgroundColor={'#F6F6EF'}
+ *                       loadMoreText={'Load More...'}/>
  *  
  */
 var React = require('react-native');
@@ -48,7 +45,7 @@ module.exports = React.createClass({
             renderRow: this.props.renderRow,
             backgroundColor: this.props.backgroundColor ? this.props.backgroundColor : '#FFFFFF',
             loadMoreText: this.props.loadMoreText ? this.props.loadMoreText : '+',
-            header: this.props.header ? this.props.header : null,
+            renderHeader: this.props.renderHeader ? this.props.renderHeader : null,
         };
     },
     onRefresh: function(page=1, callback, options){
@@ -93,10 +90,10 @@ module.exports = React.createClass({
         );
     },
     renderHeaderView: function(){
-        if(this.state.header){
-            return this.props.header();
+        if(this.state.renderHeader){
+            return this.props.renderHeader();
         }
-        return (<View />);
+        return (null);
     }
 });
 
