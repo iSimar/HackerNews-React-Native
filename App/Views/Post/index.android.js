@@ -6,8 +6,7 @@ var {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
-  WebView
+  TouchableHighlight
 } = React;
 
 var ToolbarAndroid = require('ToolbarAndroid');
@@ -16,16 +15,6 @@ var api = require("../../Network/api.js");
 
 var RefreshableListView = require("../../Components/RefreshableListView");
 var Comment = require("./Elements/Comment");
-
-var Web = React.createClass({
-  render: function() {
-    return (
-      <View style={{flex: 1}}>
-        <WebView url={this.props.url}/>
-      </View>
-    );
-  }
-});
 
 module.exports = React.createClass({
   render: function(){
@@ -119,9 +108,9 @@ module.exports = React.createClass({
   },
   pushSourceWebpage: function(){
     this.props.navigator.push({
+      id: 'Web',
       title: this.props.post.title,
-      passProps: {url: this.props.post.url},
-      component: Web
+      url: this.props.post.url
     });
   }
 });
