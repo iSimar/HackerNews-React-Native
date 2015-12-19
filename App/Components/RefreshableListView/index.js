@@ -65,10 +65,13 @@ module.exports = React.createClass({
                                 headerView={this.renderHeaderView}
                                 customStyles={{
                                                 refreshableView: {
-                                                    backgroundColor: this.state.backgroundColor
+                                                    backgroundColor: this.state.backgroundColor,
+                                                    justifyContent: 'flex-end',
+                                                    paddingBottom: 12,
                                                 },
                                                 paginationView: {
-                                                    backgroundColor: this.state.backgroundColor
+                                                    backgroundColor: this.state.backgroundColor,
+                                                    height: 60
                                                 }
                                 }}/>
             </View>

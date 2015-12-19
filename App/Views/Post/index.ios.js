@@ -120,7 +120,6 @@ var styles = StyleSheet.create({
     flex:1,
     backgroundColor: '#F6F6EF',
     flexDirection: 'column',
-    paddingTop: 10,
     paddingRight: 10,
     paddingLeft: 10,
   },
