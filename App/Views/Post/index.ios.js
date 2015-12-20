@@ -53,7 +53,7 @@ module.exports = React.createClass({
 			<Text style={styles.headerTitle}>
 				{this.props.post.title}
 			</Text>
-      {this.renderPostText}
+      {this.renderPostText()}
       <TouchableHighlight onPress={() => this.pushSourceWebpage()}
                 underlayColor='#F6F6EF'>
         <Text style={styles.headerSourceLabel}>
