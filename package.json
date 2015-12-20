@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.11.0",
-    "react-native-webintent": "^1.0.1"
+    "react-native": "^0.16.0",
+    "react-native-gifted-listview": "0.0.7"
   }
 }

@@ -2,30 +2,27 @@
 
 # HackerNews-React-Native  
 
-[Hacker News](https://news.ycombinator.com/) reader for iOS and Android, made with [React-Native](https://github.com/facebook/react-native).
+[Hacker News](https://news.ycombinator.com/) reader for iOS and Android, made with [React-Native 0.16](https://github.com/facebook/react-native).
 
-This project uses [ParseHTML](https://github.com/iSimar/ParseHTML-React-Native) to render HTML code in the Application.
+## iOS App Preview
+![iOS Preview Gif 1](http://imgur.com/8OV8MVj.gif "iOS Preview Gif 1")
+![iOS Preview Gif 2](http://imgur.com/9mrmir9.gif "iOS Preview Gif 2")
+![iOS Preview Gif 3](http://imgur.com/KuySKlC.gif "iOS Preview Gif 3")
 
-## iOS Screenshots:
-<center>
-<img src="http://i.imgur.com/evZsZub.png" height="500"  width="200"/>
-<img src="http://i.imgur.com/B7fp7lh.png" height="470"  width="240"/>
-<img src="http://i.imgur.com/74ly7GE.png" height="500"  width="200"/>
-</center>
+## Android App Preview
+![Android Preview Gif 1](http://i.imgur.com/88ZW3Ls.gif "Android Preview Gif 1")
+![Android Preview Gif 2](http://i.imgur.com/DWjd4zM.gif "Android Preview Gif 2")
 
-## Android Screenshots
-<center>
-<img src="http://i.imgur.com/rk8unz5.png" height="500"  width="250"/>
-<img src="http://i.imgur.com/MLKWBCH.png" height="500"  width="300"/>
-</center>
-## Known Issues
-   * WebView is not working for Android App
+##Features/Components
+- Uses React Native 0.16
+- Pull down to Refresh listview (only iOS)
+- Pagination listview (iOS and Android)
+- Comment & Sub Comments
 
-##Running
-Run `npm install` inside the folder, this will install react-native and other dependencies and will take some time.
+##Installation
+Once you have downloaded or cloned this repository, run `npm install` inside the directory.
 
-#### iOS 
-Open the project file at `ios/HackerNews.xcodeproj`
-
-#### Android
-Make sure that your device is detected with `adb devices`. Then run `react-native run-android`.
+##Usage
+- [Setting up React Native for Android](https://facebook.github.io/react-native/docs/android-setup.html#content)
+- [Running app on Android Device](https://facebook.github.io/react-native/docs/running-on-device-android.html#content)
+- [Running app on iOS Device](https://facebook.github.io/react-native/docs/running-on-device-ios.html#content)
