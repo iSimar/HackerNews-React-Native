@@ -33,9 +33,8 @@ module.exports = React.createClass({
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_ASK_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
                                                    loadMoreText={'Load More...'}
-                                                   style={{marginBottom:49}}/>
-                            );},
-                            badge: 0
+                                                   style={styles.listview}/>
+                            );}
                           },
                           {
                             title: 'Show HN',
@@ -45,9 +44,8 @@ module.exports = React.createClass({
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_SHOW_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
                                                    loadMoreText={'Load More...'}
-                                                   style={{marginBottom:49}}/>
-                            );},
-                            badge: 0
+                                                   style={styles.listview}/>
+                            );}
                           },
                           {
                             title: 'Front Page',
@@ -57,9 +55,8 @@ module.exports = React.createClass({
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_TOP_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
                                                    loadMoreText={'Load More...'}
-                                                   style={{marginBottom:49}}/>
-                            );},
-                            badge: 0
+                                                   style={styles.listview}/>
+                            );}
                           },
                           {
                             title: 'New',
@@ -69,9 +66,8 @@ module.exports = React.createClass({
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_NEW_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
                                                    loadMoreText={'Load More...'}
-                                                   style={{marginBottom:49}}/>
-                            );},
-                            badge: 0
+                                                   style={styles.listview}/>
+                            );}
                           },
                           {
                             title: 'Jobs',
@@ -81,13 +77,12 @@ module.exports = React.createClass({
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_JOB_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
                                                    loadMoreText={'Load More...'}
-                                                   style={{marginBottom:49}}/>
-                            );},
-                            badge: 0
+                                                   style={styles.listview}/>
+                            );}
                           }]}
               selectedTab={2}
+              activeTintColor={'#ff8533'}
               iconSize={25}/>
-        
     );
   },
   renderListViewRow: function(row, pushNavBarTitle){
@@ -186,6 +181,11 @@ var styles = StyleSheet.create({
         fontSize: 12,
         marginBottom: 10,
         color: 'gray',
+    },
+    listview: {
+      marginBottom:49,
+      borderBottomWidth: 1,
+      borderColor: 'gray'
     },
     separator: {
         height: 1,

@@ -12,14 +12,13 @@
  *  -> structure
  *      - its and array of objects that define the properties of each TabBar
  *      - an object inside the array should look like {title: <string>, iconName: <string>
- *                                                     renderContent: <function>, badge: <integer>}
+ *                                                     renderContent: <function>}
  *
  * Example:
  *  -> <TabBar structure={[{
  *                           title: 'Tab 1',
  *                           iconName: 'star',
  *                           renderContent: () => {return(<View><Text>Tab 1</Text></View>});}
- *                           badge: 0
  *                         }]}
  *             selectedTab={0}/>
  */
@@ -37,12 +36,14 @@ module.exports = React.createClass({
 		return {
 			structure: this.props.structure,
 			selectedTab: this.props.selectedTab,
-			iconSize: this.props.iconSize ? this.props.iconSize : 30
+			iconSize: this.props.iconSize ? this.props.iconSize : 30,
+			activeTintColor: this.props.activeTintColor ? this.props.activeTintColor : null
 		};
 	},
     render: function(){
         return(
-            <TabBarIOS>
+            <TabBarIOS tintColor={this.state.activeTintColor}
+            		   translucent={true}>
             	{this.state.structure.map((tabProps, tabIndex) => 
             		<Icon.TabBarItem title={tabProps.title}
             						 iconName={tabProps.iconName}
