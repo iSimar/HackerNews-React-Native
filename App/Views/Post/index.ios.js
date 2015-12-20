@@ -53,15 +53,13 @@ module.exports = React.createClass({
 			<Text style={styles.headerTitle}>
 				{this.props.post.title}
 			</Text>
-			<TouchableHighlight onPress={() => this.pushSourceWebpage()}
-								underlayColor='#F6F6EF'>
-				<Text style={styles.headerSourceLabel}>
-					(Source)
-				</Text>
-			</TouchableHighlight>
-			<Text style={styles.headerPostText}>
-				{this.props.post.text}
-			</Text>
+      {this.renderPostText}
+      <TouchableHighlight onPress={() => this.pushSourceWebpage()}
+                underlayColor='#F6F6EF'>
+        <Text style={styles.headerSourceLabel}>
+          (Source)
+        </Text>
+      </TouchableHighlight>
 			<Text style={styles.headerPostDetailsLine}>
 				Posted by {this.props.post.by} | {this.props.post.score} Points
 			</Text>
@@ -70,6 +68,16 @@ module.exports = React.createClass({
 				{this.props.post.descendants} Comments:
 			</Text>
 		</View>
+    );
+  },
+  renderPostText: function(){
+    if(!this.props.post.text){
+      return null;
+    }
+    return(
+      <Text style={styles.headerPostText}>
+        {this.fixPostText(this.props.post.text)}
+      </Text>
     );
   },
   listViewOnRefresh: function(page, callback){
@@ -114,6 +122,15 @@ module.exports = React.createClass({
   		passProps: {url: this.props.post.url},
   		component: Web
     });
+  },
+  fixPostText: function(str){
+      return String(str).replace(/<p>/g, '\n\n')
+                  .replace(/&#x2F;/g, '/')
+                  .replace('<i>', '')
+                  .replace('</i>', '')
+                  .replace(/&#x27;/g, '\'')
+                  .replace(/&quot;/g, '\"')
+                  .replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)" rel="nofollow">(.*)?<\/a>/g, "$1");
   }
 });
 
@@ -140,6 +157,7 @@ var styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'left',
     color: '#0089FF',
+    paddingBottom: 10,
   },
   headerPostDetailsLine: {
     fontSize: 12,
