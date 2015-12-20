@@ -12,6 +12,8 @@ var {
 var api = require("../../Network/api.js");
 
 var Post = require("../Post/index.ios.js");
+
+var TabBar = require("../../Components/TabBar");
 var RefreshableListView = require("../../Components/RefreshableListView");
 
 module.exports = React.createClass({
@@ -23,16 +25,75 @@ module.exports = React.createClass({
   },
   render: function(){
     return(
-        <RefreshableListView renderRow={(row)=>this.renderListViewRow(row)}
-                             onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback)}
-                             backgroundColor={'#F6F6EF'}
-                             loadMoreText={'Load More...'}/>
+      <TabBar structure={[{
+                            title: 'Ask HN',
+                            iconName: 'comment',
+                            renderContent: () => {return(
+                              <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Ask Story')}
+                                                   onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_ASK_STORIES_ENDPOINT)}
+                                                   backgroundColor={'#F6F6EF'}
+                                                   loadMoreText={'Load More...'}
+                                                   style={{marginBottom:49}}/>
+                            );},
+                            badge: 0
+                          },
+                          {
+                            title: 'Show HN',
+                            iconName: 'eye',
+                            renderContent: () => {return(
+                              <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Show Story')}
+                                                   onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_SHOW_STORIES_ENDPOINT)}
+                                                   backgroundColor={'#F6F6EF'}
+                                                   loadMoreText={'Load More...'}
+                                                   style={{marginBottom:49}}/>
+                            );},
+                            badge: 0
+                          },
+                          {
+                            title: 'Front Page',
+                            iconName: 'star',
+                            renderContent: () => {return(
+                              <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Top Story')}
+                                                   onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_TOP_STORIES_ENDPOINT)}
+                                                   backgroundColor={'#F6F6EF'}
+                                                   loadMoreText={'Load More...'}
+                                                   style={{marginBottom:49}}/>
+                            );},
+                            badge: 0
+                          },
+                          {
+                            title: 'New',
+                            iconName: 'level-up',
+                            renderContent: () => {return(
+                              <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'New Story')}
+                                                   onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_NEW_STORIES_ENDPOINT)}
+                                                   backgroundColor={'#F6F6EF'}
+                                                   loadMoreText={'Load More...'}
+                                                   style={{marginBottom:49}}/>
+                            );},
+                            badge: 0
+                          },
+                          {
+                            title: 'Jobs',
+                            iconName: 'suitcase',
+                            renderContent: () => {return(
+                              <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Job Post')}
+                                                   onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_JOB_STORIES_ENDPOINT)}
+                                                   backgroundColor={'#F6F6EF'}
+                                                   loadMoreText={'Load More...'}
+                                                   style={{marginBottom:49}}/>
+                            );},
+                            badge: 0
+                          }]}
+              selectedTab={2}
+              iconSize={25}/>
+        
     );
   },
-  renderListViewRow: function(row){
+  renderListViewRow: function(row, pushNavBarTitle){
       return(
           <TouchableHighlight underlayColor={'#f3f3f2'}
-                              onPress={()=>this.selectRow(row)}>
+                              onPress={()=>this.selectRow(row, pushNavBarTitle)}>
             <View style={styles.rowContainer}>
                 <Text style={styles.rowCount}>
                     {row.count}
@@ -50,12 +111,12 @@ module.exports = React.createClass({
           </TouchableHighlight>
       );
   },
-  listViewOnRefresh: function(page, callback){
+  listViewOnRefresh: function(page, callback, api_endpoint){
       if (page != 1 && this.state.topStoryIDs){
           this.fetchStoriesUsingTopStoryIDs(this.state.topStoryIDs, this.state.lastIndex, 5, callback);
       }
       else {
-        fetch(api.HN_TOP_STORIES_ENDPOINT)
+        fetch(api_endpoint)
         .then((response) => response.json())
         .then((topStoryIDs) => {
             this.fetchStoriesUsingTopStoryIDs(topStoryIDs, 0, 12, callback);
@@ -87,11 +148,12 @@ module.exports = React.createClass({
       iterateAndFetch();
       this.setState({lastIndex: endIndex});
   },
-  selectRow: function(row){
+  selectRow: function(row, pushNavBarTitle){
     this.props.navigator.push({
-      title: "Top Story #"+row.count,
+      title: pushNavBarTitle+' #'+row.count,
       component: Post,
-      passProps: {post: row}
+      passProps: {post: row},
+      backButtonTitle: 'Back',
     });
   }
 });
