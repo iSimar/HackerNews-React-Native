@@ -5,7 +5,7 @@
  *              pulled down to refresh
  * 
  * Dependencies:
- *  -> react-native-gifted-listview 0.0.6 (https://github.com/FaridSafi/react-native-gifted-listview)
+ *  -> react-native-gifted-listview 0.0.7 (https://github.com/FaridSafi/react-native-gifted-listview)
  *
  * Properties:
  *  -> renderRow
