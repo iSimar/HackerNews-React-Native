@@ -183,9 +183,7 @@ var styles = StyleSheet.create({
         color: 'gray',
     },
     listview: {
-      marginBottom:49,
-      borderBottomWidth: 1,
-      borderColor: 'gray'
+      marginBottom:49
     },
     separator: {
         height: 1,

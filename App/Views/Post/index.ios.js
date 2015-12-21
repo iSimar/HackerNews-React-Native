@@ -54,12 +54,7 @@ module.exports = React.createClass({
 				{this.props.post.title}
 			</Text>
       {this.renderPostText()}
-      <TouchableHighlight onPress={() => this.pushSourceWebpage()}
-                underlayColor='#F6F6EF'>
-        <Text style={styles.headerSourceLabel}>
-          (Source)
-        </Text>
-      </TouchableHighlight>
+      {this.renderSourceButton()}
 			<Text style={styles.headerPostDetailsLine}>
 				Posted by {this.props.post.by} | {this.props.post.score} Points
 			</Text>
@@ -78,6 +73,19 @@ module.exports = React.createClass({
       <Text style={styles.headerPostText}>
         {this.fixPostText(this.props.post.text)}
       </Text>
+    );
+  },
+  renderSourceButton: function(){
+    if(!this.props.post.url){
+      return null;
+    }
+    return(
+      <TouchableHighlight onPress={() => this.pushSourceWebpage()}
+                          underlayColor='#F6F6EF'>
+        <Text style={styles.headerSourceLabel}>
+          (Source)
+        </Text>
+      </TouchableHighlight>
     );
   },
   listViewOnRefresh: function(page, callback){
@@ -152,6 +160,7 @@ var styles = StyleSheet.create({
   headerPostText:{
     fontSize: 14,
     marginBottom: 3,
+    paddingBottom: 10,
   },
   headerSourceLabel:{
     fontSize: 15,
