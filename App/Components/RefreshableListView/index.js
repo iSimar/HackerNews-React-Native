@@ -57,7 +57,7 @@ module.exports = React.createClass({
     },
     render: function(){
         return(
-            <View style={[styles.container, {backgroundColor: this.state.backgroundColor}]}>
+            <View style={[styles.container, {backgroundColor: this.state.backgroundColor}, this.props.style]}>
                 <View style={styles.navBarSpace} />
                 <GiftedListView rowView={this.renderRow}
                                 onFetch={this.onRefresh}
