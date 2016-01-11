@@ -63,7 +63,7 @@ module.exports = React.createClass({
     </View>
     );
   },
-  ,
+
   renderPostText: function(){
     if(!this.props.post.text){
       return null;
