@@ -25,9 +25,14 @@
 var React = require('react-native');
 
 var {
+	View,
     TabBarIOS,
-    StyleSheet
+    StyleSheet,
+    Platform
 } = React;
+
+var ScrollableTabView = require('react-native-scrollable-tab-view');
+var CustomTabBar = require('./customTabBar.android.js');
 
 var Icon = require('react-native-vector-icons/FontAwesome');
 
@@ -41,6 +46,23 @@ module.exports = React.createClass({
 		};
 	},
     render: function(){
+    	if (Platform.OS == 'android'){
+			return(
+				<ScrollableTabView renderTabBar={() => <CustomTabBar />}
+								   onChangeTab={(o)=>{}}
+                           		   tabBarPosition={'bottom'}>
+                    {this.state.structure.map((tabProps, tabIndex) => 
+                    	<View style={{flex:1}}
+                    		  tabLabel={tabProps.title+'!$#'
+                    				   +tabProps.iconName+'!$#'
+                    				   +this.state.iconSize}
+                    		  key={tabIndex}>
+				            {tabProps.renderContent()}
+				        </View>
+	            	)}
+                </ScrollableTabView>
+			);
+		}
         return(
             <TabBarIOS tintColor={this.state.activeTintColor}
             		   translucent={true}>

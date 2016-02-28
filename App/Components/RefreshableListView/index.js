@@ -45,7 +45,7 @@ module.exports = React.createClass({
         return {
             renderRow: this.props.renderRow,
             backgroundColor: this.props.backgroundColor ? this.props.backgroundColor : '#FFFFFF',
-            loadMoreText: this.props.loadMoreText ? this.props.loadMoreText : '+',
+            loadMoreText: this.props.loadMoreText ? this.props.loadMoreText : 'Load More...',
             renderHeader: this.props.renderHeader ? this.props.renderHeader : null,
         };
     },
@@ -64,7 +64,10 @@ module.exports = React.createClass({
                                 paginationAllLoadedView={this.renderPaginationAllLoadedView}
                                 paginationWaitingView={this.renderPaginationWaitingView}
                                 headerView={this.renderHeaderView}
-                                refreshable={Platform.OS !== 'android'}
+                                PullToRefreshViewAndroidProps={{
+                                    colors: ['#F6F6EF'],
+                                    progressBackgroundColor: '#FF6600',
+                                }}
                                 customStyles={{
                                                 refreshableView: {
                                                     backgroundColor: this.state.backgroundColor,

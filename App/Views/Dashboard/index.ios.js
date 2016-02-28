@@ -32,7 +32,6 @@ module.exports = React.createClass({
                               <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Ask Story')}
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_ASK_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
-                                                   loadMoreText={'Load More...'}
                                                    style={styles.listview}/>
                             );}
                           },
@@ -43,7 +42,6 @@ module.exports = React.createClass({
                               <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Show Story')}
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_SHOW_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
-                                                   loadMoreText={'Load More...'}
                                                    style={styles.listview}/>
                             );}
                           },
@@ -54,7 +52,6 @@ module.exports = React.createClass({
                               <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Top Story')}
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_TOP_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
-                                                   loadMoreText={'Load More...'}
                                                    style={styles.listview}/>
                             );}
                           },
@@ -65,7 +62,6 @@ module.exports = React.createClass({
                               <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'New Story')}
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_NEW_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
-                                                   loadMoreText={'Load More...'}
                                                    style={styles.listview}/>
                             );}
                           },
@@ -76,7 +72,6 @@ module.exports = React.createClass({
                               <RefreshableListView renderRow={(row)=>this.renderListViewRow(row, 'Job Post')}
                                                    onRefresh={(page, callback)=>this.listViewOnRefresh(page, callback, api.HN_JOB_STORIES_ENDPOINT)}
                                                    backgroundColor={'#F6F6EF'}
-                                                   loadMoreText={'Load More...'}
                                                    style={styles.listview}/>
                             );}
                           }]}
