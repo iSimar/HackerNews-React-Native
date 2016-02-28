@@ -19,7 +19,7 @@ var Web = React.createClass({
   render: function() {
     return (
       <View style={{flex: 1}}>
-        <WebView url={this.props.url}/>
+        <WebView source={{uri: this.props.url}}/>
       </View>
     );
   }

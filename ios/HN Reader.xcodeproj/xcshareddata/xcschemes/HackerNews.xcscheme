@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "HackerNews.app"
-               BlueprintName = "HackerNews"
-               ReferencedContainer = "container:HackerNews.xcodeproj">
+               BuildableName = "HN Reader.app"
+               BlueprintName = "HN Reader"
+               ReferencedContainer = "container:HN Reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "HackerNewsTests.xctest"
-               BlueprintName = "HackerNewsTests"
-               ReferencedContainer = "container:HackerNews.xcodeproj">
+               BuildableName = "HN Reader.xctest"
+               BlueprintName = "HN ReaderTests"
+               ReferencedContainer = "container:HN Reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "HackerNewsTests.xctest"
-               BlueprintName = "HackerNewsTests"
-               ReferencedContainer = "container:HackerNews.xcodeproj">
+               BuildableName = "HN Reader.xctest"
+               BlueprintName = "HN ReaderTests"
+               ReferencedContainer = "container:HN Reader.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "HackerNews.app"
-            BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HackerNews.xcodeproj">
+            BuildableName = "HN Reader.app"
+            BlueprintName = "HN Reader"
+            ReferencedContainer = "container:HN Reader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "HackerNews.app"
-            BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HackerNews.xcodeproj">
+            BuildableName = "HN Reader.app"
+            BlueprintName = "HN Reader"
+            ReferencedContainer = "container:HN Reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "HackerNews.app"
-            BlueprintName = "HackerNews"
-            ReferencedContainer = "container:HackerNews.xcodeproj">
+            BuildableName = "HN Reader.app"
+            BlueprintName = "HN Reader"
+            ReferencedContainer = "container:HN Reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
