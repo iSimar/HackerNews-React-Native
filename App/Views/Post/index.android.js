@@ -165,7 +165,7 @@ var styles = StyleSheet.create({
   },
   headerPostText:{
     fontSize: 14,
-    marginBottom: 3,
+    marginBottom: 10,
   },
   headerSourceLabel:{
     fontSize: 15,

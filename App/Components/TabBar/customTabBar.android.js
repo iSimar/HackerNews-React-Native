@@ -39,7 +39,7 @@ var styles = StyleSheet.create({
     fontSize: 8,
   },
   separator: {
-    height: 1,
+    height: 0.5,
     backgroundColor: 'gray'
   }
 });

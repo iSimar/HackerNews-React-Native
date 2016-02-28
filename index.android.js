@@ -6,10 +6,14 @@ var {
   AppRegistry,
   StyleSheet,
   Navigator,
+  View,
+  WebView,
   BackAndroid
 } = React;
 
 var _navigator;
+
+var ToolbarAndroid = require('ToolbarAndroid');
 
 var Dashboard = require('./App/Views/Dashboard/index.android.js');
 var Post = require('./App/Views/Post/index.android.js');
@@ -42,6 +46,18 @@ var HackerNews = React.createClass({
         return (<Post navigator={navigator}
                       title={route.title}
                       post={route.post}/>);
+      case 'Web':
+          return (
+            <View style={{flex: 1}}>
+                <ToolbarAndroid style={styles.toolbar}
+                                title={route.title}
+                                navIcon={{uri: "ic_arrow_back_white_24dp", isStatic: true}}
+                                onIconClicked={navigator.pop}
+                                titleColor={'#FFFFFF'}/>
+                <WebView source={{uri: route.url}}
+                         javaScriptEnabled={true}/>
+            </View>
+          );
     }
   }
 });
@@ -51,6 +67,10 @@ var styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F6EF',
   },
+  toolbar: {
+    height: 56,
+    backgroundColor: '#FF6600'
+  }
 });
 
 AppRegistry.registerComponent('HackerNews', () => HackerNews);

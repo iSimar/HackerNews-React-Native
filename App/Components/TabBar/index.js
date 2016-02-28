@@ -50,7 +50,8 @@ module.exports = React.createClass({
 			return(
 				<ScrollableTabView renderTabBar={() => <CustomTabBar />}
 								   onChangeTab={(o)=>{}}
-                           		   tabBarPosition={'bottom'}>
+                           		   tabBarPosition={'bottom'}
+                                   initialPage={this.state.selectedTab}>
                     {this.state.structure.map((tabProps, tabIndex) => 
                     	<View style={{flex:1}}
                     		  tabLabel={tabProps.title+'!$#'
