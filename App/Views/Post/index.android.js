@@ -166,6 +166,7 @@ var styles = StyleSheet.create({
   headerPostText:{
     fontSize: 14,
     marginBottom: 10,
+    color: '#000000'
   },
   headerSourceLabel:{
     fontSize: 15,
