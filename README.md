@@ -2,7 +2,10 @@
 
 # HackerNews-React-Native  
 
-[Hacker News](https://news.ycombinator.com/) reader for iOS and Android, made with [React-Native 0.16](https://github.com/facebook/react-native).
+[Hacker News](https://news.ycombinator.com/) reader for iOS and Android, made with [React-Native](https://github.com/facebook/react-native).
+
+##DEMO
+[![App Store Button](http://i.imgur.com/z9vrGTE.png "App Store Button")](https://itunes.apple.com/ca/app/hacker-news-reader-react-native/id1067161633?mt=8)
 
 ## iOS App Preview
 ![iOS Preview Gif 1](http://imgur.com/8OV8MVj.gif "iOS Preview Gif 1")
