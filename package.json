@@ -6,8 +6,6 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.18.0-rc",
-    "react-native-gifted-listview": "0.0.10",
-    "react-native-vector-icons": "^1.0.3"
+    "react-native": "^0.20.0"
   }
 }
