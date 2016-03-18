@@ -15,8 +15,9 @@ var Post = require("../Post/index.ios.js");
 
 var TabBar = require("../../Components/TabBar");
 var RefreshableListView = require("../../Components/RefreshableListView");
+var ActivityView = require("react-native-activity-view");
 
-module.exports = React.createClass({
+module.exports = React.createClass({ 
   getInitialState: function(){
     return {
         topStoryIDs: null,
@@ -144,6 +145,13 @@ module.exports = React.createClass({
       component: Post,
       passProps: {post: row},
       backButtonTitle: 'Back',
+      rightButtonTitle: 'Share',
+      onRightButtonPress: () => {
+        ActivityView.show({
+          text: row.title, 
+          url: row.url
+        });
+      },
     });
   }
 });
