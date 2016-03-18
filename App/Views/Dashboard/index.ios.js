@@ -192,4 +192,4 @@ var styles = StyleSheet.create({
         height: 1,
         backgroundColor: '#CCCCCC'
     } 
-}); 
+});
