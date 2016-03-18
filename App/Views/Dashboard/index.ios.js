@@ -17,7 +17,7 @@ var TabBar = require("../../Components/TabBar");
 var RefreshableListView = require("../../Components/RefreshableListView");
 var ActivityView = require("react-native-activity-view");
 
-module.exports = React.createClass({ 
+module.exports = React.createClass({
   getInitialState: function(){
     return {
         topStoryIDs: null,
@@ -192,4 +192,4 @@ var styles = StyleSheet.create({
         height: 1,
         backgroundColor: '#CCCCCC'
     } 
-});
+}); 
