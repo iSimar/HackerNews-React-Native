@@ -7,6 +7,7 @@ var {
   View,
   TouchableOpacity,
   Animated,
+  StatusBar,
 } = React;
 
 var Icon = require('react-native-vector-icons/FontAwesome');
@@ -110,6 +111,7 @@ var CustomTabBar = React.createClass({
 
     return (
       <View>
+        <StatusBar backgroundColor={'#d25500'} />
         <View style={styles.separator}/>
         <View style={styles.tabs}>
           {this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))}
