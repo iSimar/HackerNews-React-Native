@@ -1,17 +1,14 @@
 'use strict';
-
-var React = require('react-native');
-
-var {
+import React from 'react';
+import {
   AppRegistry,
   StyleSheet,
   NavigatorIOS,
-} = React;
+} from 'react-native';
+import Dashboard from './App/Views/Dashboard/index.ios.js';
 
-var Dashboard = require('./App/Views/Dashboard/index.ios.js');
-
-var HackerNews = React.createClass({
-  render: function() {
+class HackerNews extends React.Component{
+  render() {
     return (
       <NavigatorIOS
         style={styles.container}
@@ -22,9 +19,9 @@ var HackerNews = React.createClass({
         }}/>
     );
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6F6EF',
@@ -32,5 +29,3 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('HackerNews', () => HackerNews);
-
-module.exports = HackerNews;
