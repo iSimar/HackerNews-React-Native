@@ -138,6 +138,7 @@ module.exports = React.createClass({
                   .replace('</i>', '')
                   .replace(/&#x27;/g, '\'')
                   .replace(/&quot;/g, '\"')
+                  .replace(/&gt;/g, '>')
                   .replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)" rel="nofollow">(.*)?<\/a>/g, "$1");
   }
 });
