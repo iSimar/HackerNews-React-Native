@@ -26,7 +26,7 @@ var Comment = React.createClass({
 					<Text style={styles.commentBy}>
 						{this.props.data.by}:
 					</Text>
-					<Text style={styles.commentText}>
+					<Text style={styles.commentText} onPress={()=>this.onShowReplies()}>
 						{this.fixCommentText(this.props.data.text)}
 					</Text>
 					{this.renderRepliesControlButton()}
