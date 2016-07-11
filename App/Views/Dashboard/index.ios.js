@@ -163,11 +163,12 @@ var styles = StyleSheet.create({
         alignItems: 'center',
     },
     rowCount: {
+        fontFamily: 'Helvetica Neue',
         fontSize: 20,
         textAlign: 'right',
         color: 'gray',
+        width: 23,
         margin: 10,
-        marginLeft: 15,
     },
     rowDetailsContainer: {
         flex: 1,
