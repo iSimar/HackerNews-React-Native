@@ -1,0 +1,23 @@
+{
+  "name": "HackerNews Reader",
+  "description": "Browse HackerNews with this app by iSimar that was mostly built in the several hours immediately after React Native was released.",
+  "slug": "hacker-news",
+  "sdkVersion": "9.0.0",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "primaryColor": "#ff6600",
+  "iconUrl": "https://s3.amazonaws.com/exp-us-standard/hackernews/icon.png",
+  "notification": {
+    "iconUrl": "https://s3.amazonaws.com/exp-us-standard/placeholder-push-icon-blue-circle.png",
+    "color": "#000000"
+  },
+  "loading": {
+    "iconUrl": "https://s3.amazonaws.com/exp-us-standard/hackernews/icon.png",
+    "hideExponentText": false
+  },
+  "packagerOpts": {
+    "assetExts": [
+      "ttf"
+    ]
+  }
+}
