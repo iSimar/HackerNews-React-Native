@@ -151,6 +151,7 @@ module.exports = React.createClass({
       onRightButtonPress: () => {
         ActionSheetIOS.showShareActionSheetWithOptions({
           subject: row.title,
+          message: row.title,
           url: row.url,
         }, () => {}, () => {});
       },
