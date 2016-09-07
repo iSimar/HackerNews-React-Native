@@ -1,14 +1,12 @@
-'use strict';
+import React from 'react';
 
-var React = require('react-native');
-
-var {
+import {
   StyleSheet,
   Text,
   View,
   TouchableHighlight,
   WebView
-} = React;
+} from 'react-native';
 
 var api = require("../../Network/api.js");
 

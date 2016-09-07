@@ -1,16 +1,16 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
   Animated,
   StatusBar,
-} = React;
+} from 'react-native';
 
-var Icon = require('react-native-vector-icons/FontAwesome');
+import { FontAwesome as Icon } from '@exponent/vector-icons';
 
 var styles = StyleSheet.create({
   tab: {

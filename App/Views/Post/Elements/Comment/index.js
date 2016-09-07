@@ -1,11 +1,11 @@
-var React = require('react-native');
+import React from 'react';
 
-var {
+import {
 	StyleSheet,
     Text,
     View,
     TouchableHighlight
-} = React;
+} from 'react-native';
 
 var api = require("../../../../Network/api.js");
 

@@ -1,20 +1,21 @@
-'use strict';
+import React from 'react';
 
-var React = require('react-native');
-
-var {
+import {
   AppRegistry,
   StyleSheet,
   Navigator,
   View,
   WebView,
   BackAndroid
-} = React;
+} from 'react-native';
+
+import {
+  Constants,
+} from 'exponent';
 
 var _navigator;
 
 var ToolbarAndroid = require('ToolbarAndroid');
-
 var Dashboard = require('./App/Views/Dashboard/index.android.js');
 var Post = require('./App/Views/Post/index.android.js');
 
@@ -30,11 +31,24 @@ BackAndroid.addEventListener('hardwareBackPress', () => {
 var HackerNews = React.createClass({
   render: function() {
     return (
-      <Navigator
-        style={styles.container}
-        tintColor='#FF6600'
-        initialRoute={{id: 'Dashboard'}}
-        renderScene={this.navigatorRenderScene}/>
+      <View style={{flex: 1, paddingTop: Constants.statusBarHeight}}>
+        <View
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: Constants.statusBarHeight,
+            backgroundColor: '#FF6600'
+          }}
+        />
+
+        <Navigator
+          style={styles.container}
+          tintColor='#FF6600'
+          initialRoute={{id: 'Dashboard'}}
+          renderScene={this.navigatorRenderScene}/>
+      </View>
     );
   },
   navigatorRenderScene: function(route, navigator){
@@ -73,6 +87,6 @@ var styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('HackerNews', () => HackerNews);
+AppRegistry.registerComponent('main', () => HackerNews);
 
 module.exports = HackerNews;

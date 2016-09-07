@@ -22,63 +22,47 @@
  *                         }]}
  *             selectedTab={0}/>
  */
-var React = require('react-native');
+import React from 'react';
 
-var {
-	View,
+import {
+  View,
     TabBarIOS,
     StyleSheet,
     Platform
-} = React;
+} from 'react-native';
 
+import TabNavigator from 'react-native-tab-navigator';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 var CustomTabBar = require('./customTabBar.android.js');
 
-var Icon = require('react-native-vector-icons/FontAwesome');
+import { FontAwesome as Icon } from '@exponent/vector-icons';
 
 module.exports = React.createClass({
-	getInitialState: function(){
-		return {
-			structure: this.props.structure,
-			selectedTab: this.props.selectedTab,
-			iconSize: this.props.iconSize ? this.props.iconSize : 30,
-			activeTintColor: this.props.activeTintColor ? this.props.activeTintColor : null
-		};
-	},
+  getInitialState: function(){
+    return {
+      structure: this.props.structure,
+      selectedTab: this.props.selectedTab,
+      iconSize: this.props.iconSize ? this.props.iconSize : 30,
+      activeTintColor: this.props.activeTintColor ? this.props.activeTintColor : null
+    };
+  },
     render: function(){
-    	if (Platform.OS == 'android'){
-			return(
-				<ScrollableTabView renderTabBar={() => <CustomTabBar />}
-								   onChangeTab={(o)=>{}}
-                           		   tabBarPosition={'bottom'}
-                                   initialPage={this.state.selectedTab}>
-                    {this.state.structure.map((tabProps, tabIndex) => 
-                    	<View style={{flex:1}}
-                    		  tabLabel={tabProps.title+'!$#'
-                    				   +tabProps.iconName+'!$#'
-                    				   +this.state.iconSize}
-                    		  key={tabIndex}>
-				            {tabProps.renderContent()}
-				        </View>
-	            	)}
-                </ScrollableTabView>
-			);
-		}
-        return(
-            <TabBarIOS tintColor={this.state.activeTintColor}
-            		   translucent={true}>
-            	{this.state.structure.map((tabProps, tabIndex) => 
-            		<Icon.TabBarItem title={tabProps.title}
-            						 iconName={tabProps.iconName}
-            						 iconSize={this.state.iconSize}
-		          					 selected={tabIndex == this.state.selectedTab}
-		          					 onPress={() => {this.setState({selectedTab: tabIndex});}}
-		          					 key={tabIndex}>
-		          			{tabProps.renderContent()}
-		        	</Icon.TabBarItem>
-            	)}
-		     </TabBarIOS>
-        );
+    return (
+        <TabNavigator>
+          {this.state.structure.map((tabProps, tabIndex) =>
+            <TabNavigator.Item
+              selected={tabIndex == this.state.selectedTab}
+              title={tabProps.title}
+              key={tabIndex}
+              selectedTitleStyle={{color: '#ff6600'}}
+              renderIcon={() => <Icon name={tabProps.iconName} size={25} color="#888" />}
+              renderSelectedIcon={() => <Icon name={tabProps.iconName} size={25} color="#ff6600" />}
+              onPress={() => { this.setState({selectedTab: tabIndex}); }}>
+              {tabProps.renderContent()}
+            </TabNavigator.Item>
+          )}
+        </TabNavigator>
+    );
     }
 });
 

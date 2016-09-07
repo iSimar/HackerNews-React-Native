@@ -1,21 +1,20 @@
 'use strict';
 
-var React = require('react-native');
+import React from 'react';
 
-var {
+import {
+  ActionSheetIOS,
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
-} = React;
+  StatusBar,
+  TouchableHighlight,
+} from 'react-native';
 
 var api = require("../../Network/api.js");
-
 var Post = require("../Post/index.ios.js");
-
 var TabBar = require("../../Components/TabBar");
 var RefreshableListView = require("../../Components/RefreshableListView");
-var ActivityView = require("react-native-activity-view");
 
 module.exports = React.createClass({
   getInitialState: function(){
@@ -26,6 +25,8 @@ module.exports = React.createClass({
   },
   render: function(){
     return(
+      <View style={{flex: 1}}>
+        <StatusBar barStyle="default" />
       <TabBar structure={[{
                             title: 'Ask HN',
                             iconName: 'comment',
@@ -79,6 +80,7 @@ module.exports = React.createClass({
               selectedTab={2}
               activeTintColor={'#ff8533'}
               iconSize={25}/>
+        </View>
     );
   },
   renderListViewRow: function(row, pushNavBarTitle){
@@ -147,10 +149,11 @@ module.exports = React.createClass({
       backButtonTitle: 'Back',
       rightButtonTitle: 'Share',
       onRightButtonPress: () => {
-        ActivityView.show({
-          text: row.title, 
-          url: row.url
-        });
+        ActionSheetIOS.showShareActionSheetWithOptions({
+          subject: row.title,
+          message: row.title,
+          url: row.url,
+        }, () => {}, () => {});
       },
     });
   }
@@ -186,7 +189,6 @@ var styles = StyleSheet.create({
         color: 'gray',
     },
     listview: {
-      marginBottom:49
     },
     separator: {
         height: 1,
