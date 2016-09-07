@@ -28,6 +28,4 @@
 Once you have downloaded or cloned this repository, run `npm install` inside the directory.
 
 ##Usage
-- [Setting up React Native for Android](https://facebook.github.io/react-native/docs/android-setup.html#content)
-- [Running app on Android Device](https://facebook.github.io/react-native/docs/running-on-device-android.html#content)
-- [Running app on iOS Device](https://facebook.github.io/react-native/docs/running-on-device-ios.html#content)
+- [Install XDE](https://docs.getexponent.com/versions/latest/introduction/installation.html), and open the project in it. Then you can access it through the Exponent client for [iPhone](https://itunes.com/apps/exponent) or [Android](https://play.google.com/store/apps/details?id=host.exp.exponent), or simulator from within XDE.
