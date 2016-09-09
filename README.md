@@ -18,7 +18,7 @@
 ![Android Preview Gif 2](http://i.imgur.com/DWjd4zM.gif "Android Preview Gif 2")
 
 ##Features/Components
-- Uses React Native 0.31
+- Uses React Native 0.20
 - Pull down to Refresh listview
 - Pagination listview
 - Comment & Sub Comments
