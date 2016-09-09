@@ -28,15 +28,15 @@
  *                       loadMoreText={'Load More...'}/>
  *  
  */
-import React from 'react';
+var React = require('react-native');
 
-import {
+var {
     StyleSheet,
     Text,
     View,
     TouchableOpacity,
     Platform
-} from 'react-native';
+} = React;
 
 var GiftedListView = require('react-native-gifted-listview');
 
@@ -64,8 +64,6 @@ module.exports = React.createClass({
                                 paginationAllLoadedView={this.renderPaginationAllLoadedView}
                                 paginationWaitingView={this.renderPaginationWaitingView}
                                 headerView={this.renderHeaderView}
-                                enableEmptySections
-                                withSections={false}
                                 PullToRefreshViewAndroidProps={{
                                     colors: ['#F6F6EF'],
                                     progressBackgroundColor: '#FF6600',

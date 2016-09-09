@@ -1,11 +1,12 @@
-import Exponent from 'exponent';
-import React from 'react';
+'use strict';
 
-import {
+var React = require('react-native');
+
+var {
   AppRegistry,
   StyleSheet,
   NavigatorIOS,
-} from 'react-native';
+} = React;
 
 var Dashboard = require('./App/Views/Dashboard/index.ios.js');
 
@@ -30,6 +31,6 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('main', () => HackerNews);
+AppRegistry.registerComponent('HackerNews', () => HackerNews);
 
 module.exports = HackerNews;
