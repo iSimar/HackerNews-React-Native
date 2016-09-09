@@ -1,11 +1,13 @@
-import React from 'react';
+'use strict';
 
-import {
+var React = require('react-native');
+
+var {
   StyleSheet,
   Text,
   View,
   TouchableHighlight
-} from 'react-native';
+} = React;
 
 var ToolbarAndroid = require('ToolbarAndroid');
 
