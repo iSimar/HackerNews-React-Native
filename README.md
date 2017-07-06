@@ -1,5 +1,3 @@
-[**Support me with a Follow**](https://github.com/iSimar/followers)
-
 # HackerNews-React-Native  
 
 [Hacker News](https://news.ycombinator.com/) reader for iOS and Android, made with [React-Native](https://github.com/facebook/react-native).
